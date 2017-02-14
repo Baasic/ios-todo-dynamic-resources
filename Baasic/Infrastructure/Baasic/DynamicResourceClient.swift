@@ -17,8 +17,12 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
     private let sessionManager: SessionManager
     private let configuration: BaasicConfigurable
     
-    init(sessionManager: SessionManager = SessionManager.default,
-         configuration: BaasicConfigurable = BaasicConfiguration(applicationIdentifier: "todo"))
+    convenience init(configuration: BaasicConfigurable) {
+        self.init(sessionManager: SessionManager.default, configuration: configuration)
+    }
+    
+    init(sessionManager: SessionManager,
+         configuration: BaasicConfigurable)
     {
         self.sessionManager = sessionManager
         self.configuration = configuration

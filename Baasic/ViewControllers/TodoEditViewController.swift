@@ -17,7 +17,7 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
     
     public var todo: TodoModel?
     
-    private let dynamicResourceClient: DynamicResourceClient<TodoModel> = DynamicResourceClient()
+    private let dynamicResourceClient: DynamicResourceClient<TodoModel> = DynamicResourceClient(configuration: BaasicConfiguration(applicationIdentifier: "todo"))
     
     public static var storyboardName: String {
         return "Main"

@@ -29,11 +29,9 @@ class TodoViewController: ViewControllerBase {
     fileprivate let recordsPerPage = 10
     fileprivate var todos: [TodoModel] = []
     
-    private let dynamicResourceClient: DynamicResourceClient<TodoModel>
+    private let dynamicResourceClient: DynamicResourceClient<TodoModel> = DynamicResourceClient(configuration: BaasicConfiguration(applicationIdentifier: "todo"))
     
     required init?(coder aDecoder: NSCoder) {
-        self.dynamicResourceClient = DynamicResourceClient()
-        
         super.init(coder: aDecoder)
     }
 
