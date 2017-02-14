@@ -13,9 +13,9 @@ public protocol DynamicResourceRequestable {
     
     func delete(id: String, completion: @escaping (BaasicResponse<Bool>) -> Void)
     
-    func find(filter: FilterParameters, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void)
+    func find(filter: ResourceFilterable, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void)
     
-    func find(schemaName: String, filter: FilterParameters, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void)
+    func find(schemaName: String, filter: ResourceFilterable, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void)
     
     func get(id: String, embed: String, fields: String, completion: @escaping (BaasicResponse<T>) -> Void)
     

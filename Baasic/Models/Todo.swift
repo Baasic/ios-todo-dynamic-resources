@@ -13,7 +13,7 @@ public class TodoModel : DynamicModelBase {
     public var title: String = ""
     public var description: String = ""
     public var isComplete: Bool = false
-    public var dateCreated: Date = Date()
+    public var scheduledDate: Date = Date()
     
     required public init() {
         super.init()
@@ -29,26 +29,11 @@ public class TodoModel : DynamicModelBase {
         title <- map["title"]
         description <- map["description"]
         isComplete <- map["isComplete"]
-        dateCreated <- (map["dateCreated"], DateFormatTransform())
+        scheduledDate <- (map["scheduledDate"], DateFormatTransform())
     }
 
     public override class var schemaName: String {
         return "todo"
-    }
-    
-    public func toJSON() -> [String : Any] {
-        var dateCreatedString = ""
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
-        dateCreatedString = formatter.string(from: self.dateCreated)
-        
-        return [
-            "title" : self.title,
-            "description" : self.description,
-            "isComplete" : String(self.isComplete),
-            "dateCreated" : dateCreatedString
-        ]
     }
 }
 
@@ -59,7 +44,7 @@ public class DateFormatTransform: TransformType {
     var dateFormatter: DateFormatter = DateFormatter()
     
     init() {
-        self.dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     }
     
     convenience init(dateFormat: String) {
@@ -71,12 +56,12 @@ public class DateFormatTransform: TransformType {
         if let dateString = value as? String {
             return self.dateFormatter.date(from: dateString)
         }
-        return nil
+        return Date()
     }
     public func transformToJSON(_ value: Object?) -> JSON? {
         if let date = value {
             return self.dateFormatter.string(from: date)
         }
-        return nil
+        return self.dateFormatter.string(from: Date())
     }
 }

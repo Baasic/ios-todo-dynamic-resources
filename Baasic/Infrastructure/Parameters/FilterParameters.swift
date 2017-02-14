@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class FilterParameters {
+public class FilterParameters : ResourceFilterable {
     
     private let DefaultSearchQuery = ""
     private let DefaultPage = 1

@@ -44,6 +44,7 @@ class TodoViewController: ViewControllerBase {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
                                                                  action: #selector(addTodo))
+        
         LoaderView.show()
         self.setupTableView()
     }
@@ -225,29 +226,46 @@ extension TodoViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexPath in
-            self.deleteTodo(self.getTodo(at: indexPath.row))
-            tableView.setEditing(false, animated: true)
+        let delete = UITableViewRowAction(style: .default, title: "\u{2573}") { action, indexPath in
+            
+            let todo = self.getTodo(at: indexPath.row)
+            let alertController = UIAlertController(title: "Delete Todo",
+                                                    message: "Are you sure you want to delete \(todo.title)",
+                                                    preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "YES", style: UIAlertActionStyle.destructive, handler: { alertAction in
+                self.deleteTodo(self.getTodo(at: indexPath.row))
+                tableView.setEditing(false, animated: true)
+            })
+            
+            alertController.addAction(okAction)
+            
+            let cancelAction = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.default, handler: { alertAction in
+                tableView.setEditing(false, animated: true)
+            })
+            
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
-        delete.backgroundColor = .red
+        delete.backgroundColor = UIColor.from(hex: "#E74C3C")
         
-        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, indexPath in
+        let edit = UITableViewRowAction(style: .normal, title: "\u{270e}") { action, indexPath in
             self.editTodo(self.getTodo(at: indexPath.row))
             tableView.setEditing(false, animated: true)
         }
-        edit.backgroundColor = .blue
+        edit.backgroundColor = UIColor.from(hex: "#F1C40F")
         
-        var actions = [delete, edit]
+        var actions = [edit, delete]
         
         let todo = self.getTodo(at: indexPath.row)
         if !todo.isComplete {
-            let complete = UITableViewRowAction(style: .normal, title: "Complete") { action, indexPath in
+            let complete = UITableViewRowAction(style: .normal, title: "\u{2713}") { action, indexPath in
                 let todo = self.getTodo(at: indexPath.row)
                 self.completeTodo(todo)
                 tableView.setEditing(false, animated: true)
             }
-            complete.backgroundColor = .green
+            complete.backgroundColor = UIColor.from(hex: "#1ABC9C")
             
             actions.insert(complete, at: 0)
         }

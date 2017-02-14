@@ -30,11 +30,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateCreated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVN-lH-F82">
-                        <rect key="frame" x="250" y="13" width="125" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVN-lH-F82">
+                        <rect key="frame" x="250" y="15" width="125" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="125" id="3oJ-TI-h9V"/>
-                            <constraint firstAttribute="height" constant="25" id="EuD-ic-QU5"/>
+                            <constraint firstAttribute="height" constant="25" id="GXf-x4-uqS"/>
+                            <constraint firstAttribute="width" constant="125" id="Wa3-1r-fIN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                         <nil key="textColor"/>
@@ -42,21 +42,21 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XgV-RX-3CX" firstAttribute="top" secondItem="QX6-ah-Ecb" secondAttribute="topMargin" constant="5" id="9Du-J9-etN"/>
-                    <constraint firstItem="uVN-lH-F82" firstAttribute="leading" secondItem="XgV-RX-3CX" secondAttribute="trailing" constant="8" symbolic="YES" id="C5K-77-5Lx"/>
-                    <constraint firstItem="ZJv-NT-oH2" firstAttribute="top" secondItem="uVN-lH-F82" secondAttribute="bottom" constant="8" symbolic="YES" id="EMP-6K-opj"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZJv-NT-oH2" secondAttribute="bottom" constant="-1" id="EOa-Rk-z7H"/>
-                    <constraint firstItem="XgV-RX-3CX" firstAttribute="leading" secondItem="ZJv-NT-oH2" secondAttribute="leading" id="XPB-Kt-TWP"/>
-                    <constraint firstAttribute="trailing" secondItem="uVN-lH-F82" secondAttribute="trailing" id="ibQ-nS-sbK"/>
-                    <constraint firstItem="XgV-RX-3CX" firstAttribute="top" secondItem="uVN-lH-F82" secondAttribute="top" id="l6y-Ae-U2R"/>
-                    <constraint firstItem="XgV-RX-3CX" firstAttribute="leading" secondItem="QX6-ah-Ecb" secondAttribute="leadingMargin" id="lPj-NL-qMW"/>
-                    <constraint firstItem="uVN-lH-F82" firstAttribute="trailing" secondItem="ZJv-NT-oH2" secondAttribute="trailing" id="rjV-lk-DpS"/>
-                    <constraint firstItem="ZJv-NT-oH2" firstAttribute="top" secondItem="XgV-RX-3CX" secondAttribute="bottom" constant="4" id="slo-Ft-iiu"/>
+                    <constraint firstItem="XgV-RX-3CX" firstAttribute="top" secondItem="QX6-ah-Ecb" secondAttribute="topMargin" constant="5" id="0gq-ue-vlZ"/>
+                    <constraint firstAttribute="trailing" secondItem="uVN-lH-F82" secondAttribute="trailing" id="3mZ-HY-sCN"/>
+                    <constraint firstItem="ZJv-NT-oH2" firstAttribute="top" secondItem="uVN-lH-F82" secondAttribute="bottom" constant="6" id="Xh5-la-452"/>
+                    <constraint firstItem="ZJv-NT-oH2" firstAttribute="top" secondItem="XgV-RX-3CX" secondAttribute="bottom" constant="4" id="YYD-Y8-h4c"/>
+                    <constraint firstItem="XgV-RX-3CX" firstAttribute="leading" secondItem="QX6-ah-Ecb" secondAttribute="leadingMargin" id="dCN-3l-iv7"/>
+                    <constraint firstItem="uVN-lH-F82" firstAttribute="leading" secondItem="XgV-RX-3CX" secondAttribute="trailing" constant="8" symbolic="YES" id="eWi-Dk-t8Q"/>
+                    <constraint firstItem="XgV-RX-3CX" firstAttribute="centerY" secondItem="uVN-lH-F82" secondAttribute="centerY" id="i4m-bE-3bQ"/>
+                    <constraint firstItem="uVN-lH-F82" firstAttribute="trailing" secondItem="ZJv-NT-oH2" secondAttribute="trailing" id="jhS-L7-Gei"/>
+                    <constraint firstItem="XgV-RX-3CX" firstAttribute="leading" secondItem="ZJv-NT-oH2" secondAttribute="leading" id="n85-QK-L1Z"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZJv-NT-oH2" secondAttribute="bottom" constant="-1" id="qez-NG-sk2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="dateCreatedLabel" destination="uVN-lH-F82" id="gFy-Th-UCG"/>
                 <outlet property="descriptionLabel" destination="ZJv-NT-oH2" id="wTk-e1-DSU"/>
+                <outlet property="scheduledDateLabel" destination="uVN-lH-F82" id="LGn-Wq-W5Y"/>
                 <outlet property="titleLabel" destination="XgV-RX-3CX" id="Rn5-2y-yHK"/>
             </connections>
             <point key="canvasLocation" x="-1397.5" y="-296"/>

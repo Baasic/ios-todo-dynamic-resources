@@ -25,8 +25,7 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
     }
  
     public func delete(id: String, completion: @escaping (BaasicResponse<Bool>) -> Void) {
-        var url = self.getDynamicResourceApiUrl(T.schemaName)
-        url = url.trimEnd("/") + "/" + id
+        let url = self.getDynamicResourceApiUrl(T.schemaName, id: id)
         
         self.sessionManager.request(url, method: .delete)
             .validate()
@@ -42,11 +41,11 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
             }
     }
     
-    public func find(filter: FilterParameters, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void) {
+    public func find(filter: ResourceFilterable, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void) {
         self.find(schemaName: T.schemaName, filter: filter, completion: completion)
     }
     
-    public func find(schemaName: String, filter: FilterParameters, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void) {
+    public func find(schemaName: String, filter: ResourceFilterable, completion: @escaping (BaasicResponse<CollectionModelBase<T>>) -> Void) {
         let url = self.getDynamicResourceApiUrl(schemaName)
         let parameters = filter.getQueryParameters()
         
@@ -69,8 +68,7 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
     }
     
     public func get(schemaName: String, id: String, fields: String, completion: @escaping (BaasicResponse<T>) -> Void) {
-        var url = self.getDynamicResourceApiUrl(T.schemaName)
-        url = url.trimEnd("/") + "/" + id
+        let url = self.getDynamicResourceApiUrl(T.schemaName, id: id)
         
         self.sessionManager.request(url, method: .get)
             .validate()
@@ -91,8 +89,7 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
     }
     
     public func update(schemaName: String, resource: T, completion: @escaping (BaasicResponse<Bool>) -> Void) {
-        var url = self.getDynamicResourceApiUrl(T.schemaName)
-        url = url.trimEnd("/") + "/" + resource.id
+        let url = self.getDynamicResourceApiUrl(T.schemaName, id: resource.id)
         
         let json = resource.toJSON()
         
@@ -132,8 +129,13 @@ public class DynamicResourceClient<T : DynamicModel> : DynamicResourceRequestabl
             })
     }
     
+    private func getDynamicResourceApiUrl(_ schemaName: String, id: String) -> String {
+        let url = self.getApiUrl(ssl: true, relativeUrl: "\(moduleRelativePath)/\(schemaName)/")
+        return url + id
+    }
+    
     private func getDynamicResourceApiUrl(_ schemaName: String) -> String {
-        return self.getApiUrl(ssl: true, relativeUrl: "\(moduleRelativePath)/\(schemaName)/")
+        return self.getDynamicResourceApiUrl(schemaName, id: "")
     }
     
     private func getApiUrl(relativeUrl: String) -> String {

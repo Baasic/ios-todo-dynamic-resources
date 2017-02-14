@@ -31,9 +31,11 @@
 		2922AB3B1E3A885600AED886 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922AB3A1E3A885600AED886 /* TodoCell.swift */; };
 		2922AB3D1E3A887700AED886 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2922AB3C1E3A887700AED886 /* TodoCell.xib */; };
 		2922AB401E3A890D00AED886 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922AB3F1E3A890D00AED886 /* Todo.swift */; };
+		2922C4771E53976100408323 /* ResourceFilterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922C4761E53976100408323 /* ResourceFilterable.swift */; };
+		2922C47A1E53ACC700408323 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922C4791E53ACC700408323 /* UIColorExtensions.swift */; };
+		2922C47C1E53B4C300408323 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922C47B1E53B4C300408323 /* DateFormatterExtensions.swift */; };
 		2923F53F1E3519BC00127859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2923F53E1E3519BC00127859 /* AppDelegate.swift */; };
 		2923F5441E3519BC00127859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2923F5421E3519BC00127859 /* Main.storyboard */; };
-		2923F5461E3519BC00127859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2923F5451E3519BC00127859 /* Assets.xcassets */; };
 		2923F5491E3519BC00127859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2923F5471E3519BC00127859 /* LaunchScreen.storyboard */; };
 		29247C481E411B1400EF3415 /* ViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29247C471E411B1400EF3415 /* ViewControllerBase.swift */; };
 		29F20F5D1E42873700251C42 /* BaasicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F20F5C1E42873700251C42 /* BaasicResponse.swift */; };
@@ -65,10 +67,12 @@
 		2922AB3A1E3A885600AED886 /* TodoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		2922AB3C1E3A887700AED886 /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		2922AB3F1E3A890D00AED886 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		2922C4761E53976100408323 /* ResourceFilterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceFilterable.swift; sourceTree = "<group>"; };
+		2922C4791E53ACC700408323 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		2922C47B1E53B4C300408323 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		2923F53B1E3519BC00127859 /* Baasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2923F53E1E3519BC00127859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2923F5431E3519BC00127859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2923F5451E3519BC00127859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2923F5481E3519BC00127859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2923F54A1E3519BC00127859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29247C471E411B1400EF3415 /* ViewControllerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBase.swift; sourceTree = "<group>"; };
@@ -93,13 +97,14 @@
 		29146D7B1E351BA4000D14D4 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				29F20F5B1E427C8800251C42 /* Parameters */,
-				29146D991E369912000D14D4 /* Extensions */,
 				29146D8A1E35369B000D14D4 /* Baasic */,
 				29146D831E3524C8000D14D4 /* Configuration */,
+				29146D991E369912000D14D4 /* Extensions */,
+				29F20F5B1E427C8800251C42 /* Parameters */,
 				29146D7C1E351BAE000D14D4 /* ResponseSerialization */,
 			);
 			name = Infrastructure;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		29146D7C1E351BAE000D14D4 /* ResponseSerialization */ = {
@@ -109,34 +114,40 @@
 				29146D811E351C89000D14D4 /* ResponseSerialization.swift */,
 			);
 			name = ResponseSerialization;
+			path = ResponseSerialization;
 			sourceTree = "<group>";
 		};
 		29146D831E3524C8000D14D4 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				29146D951E36989B000D14D4 /* BaasicConfiguration.swift */,
 				29146D971E3698AB000D14D4 /* BaasicConfigurable.swift */,
+				29146D951E36989B000D14D4 /* BaasicConfiguration.swift */,
 			);
 			name = Configuration;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		29146D8A1E35369B000D14D4 /* Baasic */ = {
 			isa = PBXGroup;
 			children = (
+				29F20F5C1E42873700251C42 /* BaasicResponse.swift */,
 				29146D8D1E369099000D14D4 /* DynamicResourceClient.swift */,
 				29146D8E1E369099000D14D4 /* DynamicResourceRequestable.swift */,
-				29F20F5C1E42873700251C42 /* BaasicResponse.swift */,
 			);
 			name = Baasic;
+			path = Baasic;
 			sourceTree = "<group>";
 		};
 		29146D991E369912000D14D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2922AB371E3A85E000AED886 /* TableViewExtensions.swift */,
+				2922C47B1E53B4C300408323 /* DateFormatterExtensions.swift */,
 				29146D9A1E369919000D14D4 /* StringExtensions.swift */,
+				2922AB371E3A85E000AED886 /* TableViewExtensions.swift */,
+				2922C4791E53ACC700408323 /* UIColorExtensions.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2920D3E61E3CF11E00F016B0 /* Nib */ = {
@@ -146,6 +157,7 @@
 				2922AB311E3A807D00AED886 /* NibViewBase.swift */,
 			);
 			name = Nib;
+			path = Nib;
 			sourceTree = "<group>";
 		};
 		2920D3E71E3CF12C00F016B0 /* Storyboard */ = {
@@ -154,6 +166,7 @@
 				2920D3E21E3CA81900F016B0 /* StoryboardLoadable.swift */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		2920D3E81E3CF13300F016B0 /* Reusable */ = {
@@ -162,40 +175,44 @@
 				2920D3E41E3CEB9200F016B0 /* Reusable.swift */,
 			);
 			name = Reusable;
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		2922AB2C1E3A79BE00AED886 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2922AB361E3A82BE00AED886 /* Common */,
 				2922AB391E3A884700AED886 /* Cells */,
-				2923F5421E3519BC00127859 /* Main.storyboard */,
+				2922AB361E3A82BE00AED886 /* Common */,
 				2923F5471E3519BC00127859 /* LaunchScreen.storyboard */,
+				2923F5421E3519BC00127859 /* Main.storyboard */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2922AB2F1E3A7BC700AED886 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				29247C471E411B1400EF3415 /* ViewControllerBase.swift */,
-				2922AB2D1E3A7BBB00AED886 /* TodoViewController.swift */,
 				2920D3ED1E3D109C00F016B0 /* TodoDetailViewController.swift */,
 				2920D3EF1E3D1A7B00F016B0 /* TodoEditViewController.swift */,
+				2922AB2D1E3A7BBB00AED886 /* TodoViewController.swift */,
+				29247C471E411B1400EF3415 /* ViewControllerBase.swift */,
 			);
 			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		2922AB361E3A82BE00AED886 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2920D3E61E3CF11E00F016B0 /* Nib */,
 				2920D3E81E3CF13300F016B0 /* Reusable */,
 				2920D3E71E3CF12C00F016B0 /* Storyboard */,
-				2920D3E61E3CF11E00F016B0 /* Nib */,
 				2920D3E91E3CF26300F016B0 /* LoaderView.swift */,
 				2920D3EB1E3CF26E00F016B0 /* LoaderView.xib */,
 			);
 			name = Common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2922AB391E3A884700AED886 /* Cells */ = {
@@ -205,25 +222,27 @@
 				2922AB3C1E3A887700AED886 /* TodoCell.xib */,
 			);
 			name = Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		2922AB3E1E3A890400AED886 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				29146D911E3690C4000D14D4 /* ModelBase.swift */,
 				29146D931E369168000D14D4 /* CollectionModelBase.swift */,
+				29146D911E3690C4000D14D4 /* ModelBase.swift */,
 				2922AB3F1E3A890D00AED886 /* Todo.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2923F5321E3519BB00127859 = {
 			isa = PBXGroup;
 			children = (
 				2923F53D1E3519BC00127859 /* Baasic */,
-				2923F53C1E3519BC00127859 /* Products */,
-				30C001200C9533F549C1B521 /* Pods */,
 				909F6E80AFD81F38FB1863C2 /* Frameworks */,
+				30C001200C9533F549C1B521 /* Pods */,
+				2923F53C1E3519BC00127859 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,14 +257,13 @@
 		2923F53D1E3519BC00127859 /* Baasic */ = {
 			isa = PBXGroup;
 			children = (
+				29146D7B1E351BA4000D14D4 /* Infrastructure */,
 				2922AB3E1E3A890400AED886 /* Models */,
 				2922AB2F1E3A7BC700AED886 /* ViewControllers */,
 				2922AB2C1E3A79BE00AED886 /* Views */,
-				29146D7B1E351BA4000D14D4 /* Infrastructure */,
 				2923F53E1E3519BC00127859 /* AppDelegate.swift */,
-				2923F5451E3519BC00127859 /* Assets.xcassets */,
-				2923F54A1E3519BC00127859 /* Info.plist */,
 				29146D881E352552000D14D4 /* ApplicationConfiguration.plist */,
+				2923F54A1E3519BC00127859 /* Info.plist */,
 			);
 			path = Baasic;
 			sourceTree = "<group>";
@@ -254,8 +272,10 @@
 			isa = PBXGroup;
 			children = (
 				2920D3F11E3FD63900F016B0 /* FilterParameters.swift */,
+				2922C4761E53976100408323 /* ResourceFilterable.swift */,
 			);
 			name = Parameters;
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 		30C001200C9533F549C1B521 /* Pods */ = {
@@ -342,7 +362,6 @@
 				2920D3EC1E3CF26E00F016B0 /* LoaderView.xib in Resources */,
 				2923F5491E3519BC00127859 /* LaunchScreen.storyboard in Resources */,
 				2922AB3D1E3A887700AED886 /* TodoCell.xib in Resources */,
-				2923F5461E3519BC00127859 /* Assets.xcassets in Resources */,
 				2923F5441E3519BC00127859 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,15 +426,18 @@
 				29F20F5D1E42873700251C42 /* BaasicResponse.swift in Sources */,
 				29146D8F1E369099000D14D4 /* DynamicResourceClient.swift in Sources */,
 				2920D3F21E3FD63900F016B0 /* FilterParameters.swift in Sources */,
+				2922C4771E53976100408323 /* ResourceFilterable.swift in Sources */,
 				2920D3EE1E3D109C00F016B0 /* TodoDetailViewController.swift in Sources */,
 				2922AB2E1E3A7BBB00AED886 /* TodoViewController.swift in Sources */,
 				29146D901E369099000D14D4 /* DynamicResourceRequestable.swift in Sources */,
 				2922AB3B1E3A885600AED886 /* TodoCell.swift in Sources */,
+				2922C47C1E53B4C300408323 /* DateFormatterExtensions.swift in Sources */,
 				2920D3E51E3CEB9200F016B0 /* Reusable.swift in Sources */,
 				29146D921E3690C4000D14D4 /* ModelBase.swift in Sources */,
 				2923F53F1E3519BC00127859 /* AppDelegate.swift in Sources */,
 				29146D801E351C39000D14D4 /* ResponseSerializable.swift in Sources */,
 				2922AB381E3A85E000AED886 /* TableViewExtensions.swift in Sources */,
+				2922C47A1E53ACC700408323 /* UIColorExtensions.swift in Sources */,
 				29146D821E351C89000D14D4 /* ResponseSerialization.swift in Sources */,
 				2920D3F01E3D1A7B00F016B0 /* TodoEditViewController.swift in Sources */,
 				29146D9B1E369919000D14D4 /* StringExtensions.swift in Sources */,
@@ -438,6 +460,7 @@
 				2923F5431E3519BC00127859 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2923F5471E3519BC00127859 /* LaunchScreen.storyboard */ = {
@@ -446,6 +469,7 @@
 				2923F5481E3519BC00127859 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

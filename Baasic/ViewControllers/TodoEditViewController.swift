@@ -13,6 +13,7 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scheduledDatePicker: UIDatePicker!
     
     public var todo: TodoModel?
     
@@ -32,6 +33,7 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
             
             self.titleTextField.text = todo.title
             self.descriptionTextView.text = todo.description
+            self.scheduledDatePicker.setDate(todo.scheduledDate, animated: false)
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Update",
                                                                      style: .plain,
@@ -39,12 +41,19 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
                                                                      action: #selector(updateTodo))
         }
         else {
-            self.title = "Create New Post"
+            self.title = "New Post"
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create",
                                                                      style: .plain,
                                                                      target: self,
                                                                      action: #selector(createTodo))
         }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func updateTodo() {
@@ -69,7 +78,7 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
     
     func createTodo() {
         let todo = bind(todo: TodoModel())
-        todo.dateCreated = Date()
+        todo.scheduledDate = Date()
         
         if !self.validate(todo: todo) {
             return
@@ -92,6 +101,7 @@ public class TodoEditViewController : ViewControllerBase, StoryboardLoadable {
     private func bind(todo: TodoModel) -> TodoModel {
         todo.title = self.titleTextField.text!
         todo.description = self.descriptionTextView.text
+        todo.scheduledDate = self.scheduledDatePicker.date
         return todo
     }
     
