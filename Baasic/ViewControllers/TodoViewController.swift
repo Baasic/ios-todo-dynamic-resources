@@ -104,7 +104,7 @@ class TodoViewController: ViewControllerBase {
         self.currentPage = page
         
         let params = FilterParameters()
-        params.sort = "title"
+        params.sort = "scheduledDate"
         params.page = page
         params.rpp = self.recordsPerPage
         

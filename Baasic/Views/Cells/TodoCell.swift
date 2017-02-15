@@ -22,6 +22,6 @@ public class TodoCell : UITableViewCell, NibReusable {
         let formatter = DateFormatter.todoDateFormatter()
         self.scheduledDateLabel.text = formatter.string(from: todo.scheduledDate)
         
-        self.backgroundColor = todo.isComplete ? UIColor.green : UIColor.clear
+        self.backgroundColor = todo.isComplete ? UIColor.from(hex: "#53DF83") : UIColor.clear
     }
 }
